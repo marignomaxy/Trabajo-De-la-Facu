@@ -10,7 +10,7 @@
 		<header>
 			<!--Parte para Registrarse/Iniciar Sesion -->
 			<div class="superior">
-				<a href="./" class="enlinea">Iniciar Sesion</a> |
+				<a href="./IniciarSesion.php" class="enlinea">Iniciar Sesion</a> |
 				<a href="./Registrarse.php" class="enlinea" >Registrarse</a>
 			</div>	
 			<div id="Logotipo" class="AcomodarLogo">
