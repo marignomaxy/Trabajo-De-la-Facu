@@ -88,6 +88,7 @@ inner join autores ON autores.id = libros.autores_id
 			</div>
 			</div>
 		</section>
+		
 	</div>
 
 </body>
