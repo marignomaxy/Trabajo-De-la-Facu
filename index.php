@@ -1,8 +1,24 @@
+<?php 
+	
+	require_once "conexion.php";
+	$c= new conectar();
+	$conexion=$c->conexion();
+	$sql="SELECT libros.id, libros.titulo, libros.portada, libros.cantidad, autores.apellido, autores.nombre,autores.id
+from libros
+inner join autores ON autores.id = libros.autores_id
+";
+	$result=mysqli_query($conexion,$sql);
+	
+ ?>
+
+
+
+
 <html>
 <head>
 
 	<title>Gestion de bibliotecas</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
 	<div class="contenedor">
@@ -10,7 +26,7 @@
 		<header>
 			<!--Parte para Registrarse/Iniciar Sesion -->
 			<div class="superior">
-				<a href="./" class="enlinea">Iniciar Sesion</a> |
+				<a href="./IniciarSesion.php" class="enlinea">Iniciar Sesion</a> |
 				<a href="./Registrarse.php" class="enlinea" >Registrarse</a>
 			</div>	
 			<div id="Logotipo" class="AcomodarLogo">
@@ -19,28 +35,12 @@
 					<img class="imagen" src="logotipo.png" alt="logo">
 				</div>
 			</div>
-
-			<div id="menu">
-				<ul>
-					<li><a href="./index.php">Catalogo De Libros</a></li>
-					<li><a href="">Autores</a></li>
-					<li><a href="">Contacto</a></li>
-				</ul>
-			</div>
-
-		</header>
-
-		<section class="main">
-			<hr id="linea" />
 			<!--Busqueda De Libros-->
-			<div id="Catalogo" >
-				<h3>Catalogo De Libros</h3>
-			</div>
-			<div id="BuscadorDeLibros" style="margin-left: 270px">
+			<div id="BuscadorDeLibros" style="margin: 26px -200px -100px 180px;color: white;">
 				<div class="enlinea">
-					<h4>Busqueda De Libro: </h4>
-					<form name="buscador" action="form_action.php" method="get" > 
-						<div style="display:inline-flex;">
+					<h4 style="margin: 28px 0px;">Busqueda De Libro: </h4>
+					<form name="buscador" action="buscador.php" method="post" > 
+						<div style="display: table-caption;">
 							<label for="Libro"> Libro:</label>
 							<input type="search" name="BuscadorLibro" id="Libro" class="input" >
 							<label for="Autor"> Autor:</label>
@@ -50,64 +50,45 @@
 					</form>
 				</div>	
 			</div>
-	
+
+		</header>
+
+		<section>
+			<hr id="linea" />
+			<div id="Catalogo" >
+				<h3>Catalogo De Libros :</h3>
+			</div>
+		
+			<div class="main">
 			<!--Tablas De Libros-->
 			<div class="acomodarTabla">
-				<table class="altoTabla">
+				<table class="table">
 					<!--Encabezado De La Tabla-->
-					<tr>
-						<th>Portadas</th>
-						<th>Nombre Del Libro</th>
-						<th>Autor</th>
-						<th>Ejemplares</th>
+					<tr class="tr">
+						<th class="th">Portadas</th>
+						<th class="th">Nombre Del Libro</th>
+						<th class="th">Autor</th>
+						<th class="th">Ejemplares</th>
 					</tr>
-
+					<?php $canti=0;
+					while($canti<=4 and $ver=mysqli_fetch_row($result)){ ?>
 					<!--Primer Libro-->
-					<tr>
-						<td><img class="imagenTabla" src="1.jpg" alt="Portada Para Libros"></td>
-						<td><a href="">Portada Para Libros</a></td>
-						<td><a href="">Alberto Gomez</a></td>
-						<td>5 (Disponibles:3 / Prestados:2)
-						</td>
+					<tr class="tr">
+						<td class="td"><?php echo '<img class="imagenTabla" src="$ver[2]" alt="Portada Para Libros"> '?></td>
+						<td class="td"><a href="descripcion.php?id=<?php echo $ver[0] ?>"><?php echo $ver [1]; ?></a></td>
+						<td class="td"><a href="autores.php?id=<?php echo $ver[6] ?>"><?php echo $ver [5].', '.$ver[4]; ?></a></td>
+						<!--<?php include('disponibles.php');
+							$dis=$ver [3]-$reservados-$prestados;	 
+						 ?>-->
+						<td class="td"><?php echo $ver [3]."(Disponibles $dis-Prestados $prestados-Reservados $reservados)"; ?></td>
 					</tr>
-					<!--Segundo Libro-->
-					<tr>
-						<td><img class="imagenTabla" src="2.jpg" alt="No Subas"></td>
-						<td><a href="">No Subas</a></td>
-						<td><a href="">John Tamad</a></td>
-						<td>6 (Disponibles:1 / Prestados:5)
-						</td>
-					</tr>
-					<!--Tercer Libro-->
-					<tr>
-						<td><img class="imagenTabla" src="3.jpg" alt="No Subas"></td>
-						<td><a href="">El Legado</a></td>
-						<td><a href="">Francisco Lopez</a></td>
-						<td>5 (Disponibles:4 / Prestados:1)
-						</td>							
-
-					</tr>
-					<!-- Cuarto Libro-->
-					<tr>
-						<td><img class="imagenTabla" src="4.jpg" alt="No Subas"></td>
-						<td><a href="">Cartas Desde La Isla De Skye</a></td>
-						<td><a href="">Jessica Brockmoll</a></td>
-						<td>6 (Disponibles:0 / Prestados:6)
-						</td>
-
-					</tr>
-					<!--Quinto Libro-->
-					<tr>
-						<td><img class="imagenTabla" src="5.jpg" alt="No Subas"></td>
-						<td><a href="">Todas las Adas del Reino</a></td>
-						<td><a href="">Laura Gallego</a></td>
-						<td>6 (Disponibles:1 / Prestados:5)
-						</td>
-					</tr>
-
+				<?php $canti++;
+				 } ?>
 				</table>
 			</div>
+			</div>
 		</section>
+		
 	</div>
 
 </body>
