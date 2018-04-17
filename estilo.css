@@ -1,0 +1,213 @@
+.contenedor{
+	background-image: url(wallpaper-negro.jpg);
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
+h1,p{
+	color: white;
+	padding: 35px 72px 16px 10px;
+}
+
+.superior{
+	text-align: right;
+	float: right;
+	color: white;
+
+}
+
+.imagen{
+	height: 132px;
+    width: 243px;
+    margin: 0px 0px 0px 126px;
+}
+
+.enlinea{
+	display: inline-flex;
+}	
+
+.AcomodarLogo{
+	float: left;
+	width: 22%;
+}
+
+.imagenTabla{
+	height: 60%;
+    max-height: 70px;
+    width: 60%;
+    max-width: 70px;
+    padding: 2px;
+}
+
+.barraLargo{
+	margin:0;
+	width:350px;
+}
+
+.altoTabla{
+	height: 200px;
+}
+
+.acomodarBoton{
+	font-weight: bold;
+    height: 22px;
+    margin: 5px 0px 0px 42em;
+}
+
+.acomodarTabla{
+	margin:6px 2%;
+}
+
+.input{
+	width: 45em;
+}
+
+
+.main{
+    padding: 1px;
+    margin: auto;
+    width: 1002px;
+}
+
+
+
+body header{
+	font-family:Lucida Fax; 
+
+}
+
+
+
+header{
+	background: #000000;
+    width: 100%;
+    padding: 20px;
+    height: 160px;
+}
+
+
+
+label{
+	margin-left: 5px;
+}
+
+.table{
+	width: 100%;
+	text-align:center;
+	border-collapse: collapse;
+	margin-top: 5px;
+	height: 200px;
+	border: 1px solid black;
+}
+
+.tr{
+	border: 1px solid white;
+}
+
+
+table a{
+	color: white;
+}
+
+
+header,div #Logotipo,div #menu{
+	display: inline-block;
+}
+
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div #Catalogo,div #BuscadorDeLibros{
+	display: inline-block;
+	margin:5px;
+}
+
+header div a {
+	text-decoration:none;
+	color:white;
+}
+
+
+.td{
+	border-right: 1px solid white;
+	border-bottom: 1px solid white;
+	font-family: Eras Medium ITC,Monotype Corsiva,Bahnschrift Light,Arial;
+	color: white;
+}
+
+.th{
+	border-right: 1px solid white;
+	border-bottom: 1px solid white;
+
+	
+}
+section h3,section h4,section th{
+	font-family:Lucida Fax,Arial Black;
+	color: white;
+}
+
+#BusquedaLibro{
+	margin: 25px -257px -200px 208px;
+	text-align: center;
+	color: black;
+}
+
+#linea{
+	border:1px solid #bb1f1f;
+}
+
+#menu{
+	background-color:#A1A1A1;
+    float:right;
+    margin: 47px 0px;
+
+}
+
+ #menu ul{
+ 	list-style: none;
+ 	margin:0;
+ 	padding: 0;
+ }
+
+ #menu ul,li{
+ 	display: inline-block;
+ }
+
+ #menu ul li a{
+ 	color: black;
+ 	display: block;
+ 	padding: 6px 56px;
+ 	text-decoration: none;
+ }
+
+ #menu ul li a:hover {
+		background-color: #6E6E6E
+ }
+
+
+ @media (max-width: 600px) {
+    .imagen{
+		height: 53px;
+		width: 150px;
+	}
+}
+
+form input{
+	margin:0 3px 0 5px;
+}
+
+.AcomodarTablaRegistro{
+	margin:0 auto;
+    height: 368px;
+}
+
+.AcomodarTablaIniciarSesion{
+	margin:55px auto;
+
+}
+td{
+	color: white;
+}
